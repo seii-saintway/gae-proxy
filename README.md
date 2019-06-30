@@ -17,20 +17,20 @@ openssl req -new -x509 -key private.pem -out public.crt -days 99999
 
 第二行命令运行后，需要填写一些证书信息。需要注意的是 **Common Name 一定要填写后续提供 HTTPS 服务的域名或 IP**，其它信息随意填写。然后把 `public.crt` 下载到本地，导入到系统受信任根证书列表中。
 
-最后运行 proxy.js 即可：
+最后运行 https_proxy.js 即可：
 
 ```bash
-node proxy.js
+node https_proxy.js
 
 #在后台运行
-nohup node proxy.js &
+nohup node https_proxy.js &
 ``` 
 
 给 Chrome 配置代理，填写以下三项：
 
 * Protocol：填 HTTPS；
 * Server：填服务器 IP 或域名（必须等于生成证书时填写的 Common Name）；
-* Port：填服务器端口（默认是 8888，可以直接在 proxy.js 中修改）；
+* Port：填服务器端口（默认是 8888，可以直接在 https_proxy.js 中修改）；
 
 推荐使用 [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif) 扩展管理 Chrome 代理。
 

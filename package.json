@@ -1,0 +1,6 @@
+{
+  "name": "http-proxy",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

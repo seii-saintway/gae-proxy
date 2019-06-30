@@ -9,6 +9,7 @@ var net = require('net');
 var url = require('url');
 
 function request(cReq, cRes) {
+  console.log(cReq.url);
   var u = url.parse(cReq.url);
 
   var options = {
@@ -30,6 +31,7 @@ function request(cReq, cRes) {
 }
 
 function connect(cReq, cSock) {
+  console.log(cReq.url);
   var u = url.parse('http://' + cReq.url);
 
   var pSock = net.connect(u.port, u.hostname, function() {

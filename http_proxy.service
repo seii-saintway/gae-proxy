@@ -1,0 +1,12 @@
+[Unit]
+After=network.target
+
+[Service]
+Environment=NODE_PORT=8888
+Type=simple
+User=ubuntu
+ExecStart=/usr/bin/nodejs /home/ubuntu/http_proxy.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
